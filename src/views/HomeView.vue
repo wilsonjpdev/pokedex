@@ -9,7 +9,12 @@
 
           <div class="card-body bg-pokebola bg-normal">
             <div class="pokemon">
-              <transition name="pulo">
+              <transition
+              @before-enter="antesDaEntrada"
+              @enter="duranteAEntrada"
+              enter-active-class="animate__animated animate__bounce animate__faster"
+              leave-active-class="animate__animated animate__bounce animate__faster"              
+              >
                 <img src="@/assets/imgs/pokemons/001.png" v-if="exibir">
               </transition>
 
@@ -88,7 +93,12 @@ export default {
   name: 'HomeView',
   data: () => ({
     exibir: false
-  })
+  }),
+  methods: {
+    antesDaEntrada() {
+
+    }
+  }
 }
 </script>
 
