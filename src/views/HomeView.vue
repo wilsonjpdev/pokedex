@@ -9,7 +9,18 @@
 
           <div class="card-body bg-pokebola bg-normal">
             <div class="pokemon">
-              <img src="@/assets/imgs/pokemons/001.png" v-if="exibir">
+              <transition name="pulo">
+                <img src="@/assets/imgs/pokemons/001.png" v-if="exibir">
+              </transition>
+
+              <div class="evolucoes">
+                <transition name="fade">
+                <img src="@/assets/imgs/pokemons/003.png" v-if="exibir">
+                </transition>
+                <transition name="fade">
+                  <img src="@/assets/imgs/pokemons/002.png" v-if="exibir">
+                </transition>
+              </div>
             </div>
           </div>
 
@@ -88,6 +99,9 @@ body {
 </style>
 
 <style scoped>
+
+@import '~@/assets/css/animacoes.css';
+
 .pokedex {
   padding: 20px;
   background-color: #ffffff;
@@ -184,6 +198,20 @@ body {
 
 .detalhes {
   margin: 20px 30px 20px 30px;
+}
+
+.evolucoes {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 70px;
+}
+
+.evolucoes img {
+  cursor: pointer;
+  max-width: 100%;
+  max-height: 100%;
+  float: right;
 }
 
 </style>
