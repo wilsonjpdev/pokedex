@@ -1,15 +1,12 @@
 <template>
-    <div>
+    <div v-if="!pokemon.status">
+            Selecione um Pokémon
+        </div>
+    <div v-else>
         <table class="table text-white">
             <tbody>
-                <tr>
-                    <td>Ataque fúria</td>
-                    <td class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-danger btn-sm">x</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Esquiva</td>
+                <tr v-for="(h, indice) in pokemon.habilidades" :key="indice">
+                    <td>{{ h }}</td>
                     <td class="d-flex justify-content-end">
                         <button type="button" class="btn btn-danger btn-sm">x</button>
                     </td>
@@ -25,3 +22,12 @@
     border: none;
 }
 </style>
+
+<script>
+
+export default ({
+    props: {
+        pokemon: Object
+    }
+})
+</script>
