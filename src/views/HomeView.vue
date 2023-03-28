@@ -8,8 +8,7 @@
           <div class="card-header"></div>
 
           <div class="card-body bg-pokebola bg-normal">
-            <div class="pokemon">
-              
+            <div class="pokemon">              
               <transition
                 enter-active-class="animate__animated animate__bounce"
                 leave-active-class="animate__animated animate__bounceOut"
