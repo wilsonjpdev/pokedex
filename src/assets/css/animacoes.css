@@ -21,3 +21,9 @@
 .lista-move {
     transition: 1s;
 }
+
+/* transition-group para o filtro de ordenacao*/
+
+.ordenacao-move {
+    transition: all 1s;
+}
