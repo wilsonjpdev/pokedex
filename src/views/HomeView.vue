@@ -97,6 +97,7 @@
               type="text"
               class="form-control"
               placeholder="Pesquisar pokémon"
+              v-model="pesquisarPokemon"
             />
           </div>
         </div>
@@ -139,7 +140,8 @@ export default {
     exibir: false,
     pokemon: {},
     pokemons: [],
-    ordenacao: "",
+    ordenacao: '',
+    pesquisarPokemon: ''
   }),
   watch: {
     ordenacao(valorNovo) {
@@ -184,6 +186,15 @@ export default {
         })
       }
     },
+    pesquisarPokemon(valorNovo) {
+      fetch(`http://localhost:3000/pokemons?nome_like=${valorNovo}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        this.pokemons = data;
+      });
+    }
   },
   created() {
     fetch("http://localhost:3000/pokemons")
@@ -222,7 +233,7 @@ export default {
       if (this.pokemon.habilidades[indice]) {
         this.pokemon.habilidades.splice(indice, 1);
       }
-    },
+    }
   },
 };
 </script>
